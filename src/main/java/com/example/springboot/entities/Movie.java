@@ -22,4 +22,6 @@ public class Movie {
   private float imdbRating;
   @JsonProperty("Plot")
   private String plot;
+  @JsonProperty("Poster")
+  private String poster;
 }

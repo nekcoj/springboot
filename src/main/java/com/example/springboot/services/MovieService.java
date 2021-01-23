@@ -1,14 +1,11 @@
 package com.example.springboot.services;
 
 import com.example.springboot.entities.Movie;
-import com.example.springboot.models.MovieResultItem;
-import com.example.springboot.models.MovieResults;
 import com.example.springboot.repositories.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,7 +18,6 @@ public class MovieService {
 
   public Iterable<Movie> getAllMovies() {
     Iterable<Movie> iterable = movieRepository.findAll();
-
     if(iterable.iterator().hasNext()){
       return iterable;
     }
@@ -41,9 +37,11 @@ public class MovieService {
     }
 
     Movie movie = restTemplate.getForObject("http://www.omdbapi.com/?apikey="+ apiKey + "&r=json&plot=full&i=" + id, Movie.class);
-
     assert movie != null;
-    movieRepository.save(movie);
-    return movie;
+    if(movie.getTitle() != null){
+      movieRepository.save(movie);
+      return movie;
+    }
+    return new Movie(-1L, "Id not found", "The id you have provided returned null.", -1, null, "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg");
   }
 }
