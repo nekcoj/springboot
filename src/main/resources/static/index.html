@@ -11,17 +11,36 @@
 
   <h3>- Movies - Root route: /api/v1/movie</h3>
 
-  <div style="border: 1px solid black; width: 25vw; padding: 1%; margin: 2px;">
+  <div style="border: 1px solid black; width: 25vw; padding: 10px; margin: 2px;">
     <h2>GET ALL</h2>
     <h3>Route: /</h3>
+    <h3>Method: GET</h3>
     <h4>Fetch all movies in my database. <a href="http://98.128.140.50:5050/api/v1/movie/">Try it!</a> </h4>
   </div>
 
-  <div style="border: 1px solid black; width: 25vw; padding: 1%; margin: 2px;">
+  <div style="border: 1px solid black; width: 25vw; padding: 10px; margin: 2px;">
     <h2>GET BY ID</h2>
     <h3>Route: /:id</h3>
+    <h3>Method: GET</h3>
     <h4>Takes either an imdbID (ex. tt0095016) or id ( ex. 1). <a href="http://98.128.140.50:5050/api/v1/movie/tt0095016">Try it!</a></h4>
   </div>
+
+  <div style="border: 1px solid black; width: 25vw; padding: 10px; margin: 2px;">
+    <h2>ADD</h2>
+    <h3>Route: /add</h3>
+    <h3>Method: POST</h3>
+    <h4>Add a movie to the database</h4>
+    <pre>
+      {
+        "imdbID": "String",
+        "imdbRating": float,
+        "Title": "String",
+        "Plot": "String",
+        "Poster": "String URL to poster image"
+      }
+    </pre>
+  </div>
+
 
 </body>
 </html>

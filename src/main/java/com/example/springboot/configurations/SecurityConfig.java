@@ -25,6 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers( "/").permitAll()
         .antMatchers(HttpMethod.GET, "/api/v1/movie/*").authenticated()
         .antMatchers(HttpMethod.GET, "/api/v1/movie").permitAll()
+        .antMatchers(HttpMethod.POST, "/api/v1/movie/add").authenticated()
         .and()
         .formLogin()
     ;

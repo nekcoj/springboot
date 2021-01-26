@@ -44,4 +44,8 @@ public class MovieService {
     }
     return new Movie(-1L, "Id not found", "The id you have provided returned null.", -1, null, "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg");
   }
+
+  public Movie addMovie(Movie movie) {
+    return movieRepository.save(movie);
+  }
 }
